@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.fall2026demoproject.ProfileController">
+   <children>
+      <VBox alignment="CENTER" layoutX="119.0" layoutY="34.0" prefHeight="316.0" prefWidth="100.0">
+         <children>
+            <Label alignment="CENTER" text="Username:" />
+            <TextField fx:id="usernameTextField" alignment="CENTER" />
+            <Label fx:id="usernameIsTaken" textFill="#ef0707" />
+            <Label text="Student ID:">
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="studentIDTextField" alignment="CENTER" />
+            <Label prefHeight="63.0" prefWidth="77.0" text="Student Email:">
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="studentEmailTextField" alignment="CENTER" />
+            <Label alignment="CENTER" prefHeight="59.0" prefWidth="60.0" text="Password:" textAlignment="JUSTIFY">
+               <padding>
+                  <Insets top="15.0" />
+               </padding>
+            </Label>
+            <TextField fx:id="studentPassword" alignment="CENTER" />
+         </children>
+      </VBox>
+      <TitledPane fx:id="prefeernces" layoutX="347.0" layoutY="59.0" prefHeight="256.0" prefWidth="202.0" text="Preferences">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <VBox prefHeight="173.0" prefWidth="202.0">
+                     <children>
+                        <Label prefHeight="17.0" prefWidth="217.0" text="Diet Preferences" />
+                        <CheckBox mnemonicParsing="false" text="Gluten-free" />
+                        <CheckBox mnemonicParsing="false" text="Vegeterian" />
+                        <CheckBox mnemonicParsing="false" text="Vegan" />
+                        <CheckBox layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="Pescatarian" />
+                        <CheckBox layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="High protein" />
+                        <Separator prefWidth="200.0" />
+                        <Label prefHeight="17.0" prefWidth="245.0" text="Allergies" />
+                        <CheckBox layoutX="10.0" layoutY="27.0" mnemonicParsing="false" text="Eggs" />
+                        <CheckBox layoutX="10.0" layoutY="45.0" mnemonicParsing="false" text="Peanuts" />
+                        <CheckBox layoutX="10.0" layoutY="62.0" mnemonicParsing="false" text="Soy" />
+                        <CheckBox layoutX="10.0" layoutY="79.0" mnemonicParsing="false" text="Wheat" />
+                        <CheckBox layoutX="10.0" layoutY="97.0" mnemonicParsing="false" text="Fish" />
+                        <CheckBox mnemonicParsing="false" text="Shellfish" />
+                     </children>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </TitledPane>
+      <Button fx:id="confirmChangesButton" layoutX="246.0" layoutY="346.0" mnemonicParsing="false" onAction="#onConfirmChangesButtonClick" text="Confirm Changes" />
+   </children>
+</Pane>
