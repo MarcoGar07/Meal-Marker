@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="600" prefWidth="900" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.mealmarker.CreateAccountController">
+
+    <children>
+        <VBox alignment="CENTER" layoutX="250.0" layoutY="14.0" prefWidth="400" spacing="14" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="14.0">
+
+            <padding>
+                <Insets bottom="25" left="35" right="35" top="25" />
+            </padding>
+
+            <Label style="-fx-font-size: 28px; -fx-font-weight: bold;" text="CREATE ACCOUNT" />
+
+            <Label style="-fx-font-size: 13px;" text="Join Meal Maker and start planning your meals!" />
+
+            <TextField fx:id="usernameTextField" prefHeight="40" promptText="Username" />
+         <Label fx:id="usernameLabel" textFill="#fb0505" />
+
+            <TextField fx:id="studentIDTextField" prefHeight="40" promptText="Student ID" />
+         <Label fx:id="studentIDLabel" textFill="#f20404" />
+
+            <TextField fx:id="emailTextField" prefHeight="40" promptText="Student Email" />
+         <Label fx:id="emailLabel" textFill="#fb0404" />
+
+            <PasswordField fx:id="passwordTextField" prefHeight="40" promptText="Password" />
+
+            <PasswordField fx:id="confirmPasswordTextField" prefHeight="40" promptText="Confirm Password" />
+
+            <Button fx:id="createAccountButton" maxWidth="Infinity" onAction="#createAccount" prefHeight="40" text="Create Account" />
+
+            <Button maxWidth="Infinity" onAction="#backToLogin" text="Back to Login" />
+
+        </VBox>
+    </children>
+</AnchorPane>

@@ -1,4 +1,4 @@
-package edu.utsa.cs3443.fall2026demoproject;
+package edu.utsa.cs3443.mealmarker;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -10,9 +10,8 @@ import java.io.IOException;
 public class MealMarkerApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(MealMarkerApplication.class.getResource("profile-view.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 320, 240);
-        stage.setTitle("Hello!");
+        FXMLLoader fxmlLoader = new FXMLLoader(MealMarkerApplication.class.getResource("login-view.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
         stage.setScene(scene);
         stage.show();
     }
