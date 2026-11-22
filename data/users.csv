@@ -1,0 +1,4 @@
+username,studentID,studentEmail,password,budget,preferences
+Test,abc123,test@my.utsa.edu,1234,0.0,Gluten-free,Vegetarian,Vegan,Pescatarian,High protein,Eggs,Peanuts
+Test2,abc456,test2@my.utsa.edu,1234,0.0,Gluten-free,Vegetarian,Vegan
+Marco,cnk269,marco.garcia9@my.utsa.edu,Cal2SoGoated,0.0

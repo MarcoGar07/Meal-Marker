@@ -2,14 +2,24 @@ package edu.utsa.cs3443.mealmarker;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import model.User;
+
+import java.awt.event.ActionEvent;
 import java.io.IOException;
 
 public class LoginController {
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Button createAccountButton;
 
     @FXML
     private TextField usernameTextField;
@@ -29,15 +39,24 @@ public class LoginController {
             return;
         }
 
-        String correctUsername = "student";
-        String correctPassword = "meal123";
+        User user = User.lookForUser(username, password);
 
-        if (username.equals(correctUsername)
-                && password.equals(correctPassword)) {
+        if (user != null) {
 
             showAlert("Login Successful",
                     "Welcome to Meal Marker," + username + "!");
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/profile-view.fxml"));
+                Scene scene = new Scene(loader.load(), 900, 600);
 
+                ProfileController profileController = loader.getController();
+                profileController.initData(user);
+
+                Stage stage = (Stage) loginButton.getScene().getWindow();
+                stage.setScene(scene);
+            }catch(IOException e){
+                System.out.println(e.getMessage());
+            }
         } else {
             showAlert("Login Failed",
                     "Incorrect username or password.");
@@ -48,16 +67,10 @@ public class LoginController {
     @FXML
     private void createAccount() {
         try {
-            FXMLLoader loader = new FXMLLoader(
-                    LoginController.class.getResource(
-                            "/edu/utsa/cs3443/mealmarker/create-account-view.fxml"
-                    )
-            );
-
-            Stage stage = (Stage) usernameTextField.getScene().getWindow();
-
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/create-account-view.fxml"));
             Scene scene = new Scene(loader.load(), 900, 600);
 
+            Stage stage = (Stage) createAccountButton.getScene().getWindow();
             stage.setScene(scene);
         } catch (IOException e) {
             e.printStackTrace();
