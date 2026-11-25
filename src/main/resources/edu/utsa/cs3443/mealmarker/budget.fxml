@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="720.0" minWidth="1280.0" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.mealmarker.BudgetController">
+
+    <!-- Main Content Area -->
+    <center>
+        <BorderPane BorderPane.alignment="CENTER">
+            <!-- Orange UTSA Banner Header -->
+            <top>
+                <HBox alignment="CENTER_LEFT" prefHeight="85.0" style="-fx-background-color: #f15a22;" BorderPane.alignment="CENTER">
+                    <padding>
+                        <Insets left="35.0" right="35.0" />
+                    </padding>
+                    <children>
+                        <VBox alignment="CENTER_LEFT" spacing="2.0">
+                            <children>
+                                <Label text="Weekly Budget &amp; Nutrition Planner" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="26.0" />
+                                    </font>
+                                </Label>
+                                <Label text="Manage campus meal expenses and monitor macronutrient totals" textFill="#ffe0b2">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                            </children>
+                        </VBox>
+                    </children>
+                </HBox>
+            </top>
+
+            <!-- Dashboard Content Panels -->
+            <center>
+                <VBox spacing="25.0" style="-fx-background-color: #f8f9fa;">
+                    <padding>
+                        <Insets bottom="30.0" left="35.0" right="35.0" top="25.0" />
+                    </padding>
+                    <children>
+                        <!-- Top Row: Overview Cards (Budget + Nutrition) -->
+                        <HBox prefHeight="220.0" spacing="25.0">
+                            <children>
+                                <!-- Weekly Budget Overview Card -->
+                                <VBox spacing="14.0" style="-fx-background-color: #ffffff; -fx-border-color: #cfd8dc; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Weekly Budget Overview" textFill="#032044">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <GridPane hgap="16.0" vgap="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="130.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="24.0" />
+                                                <RowConstraints minHeight="24.0" />
+                                                <RowConstraints minHeight="36.0" />
+                                                <RowConstraints minHeight="20.0" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Weekly Limit:" textFill="#546e7a">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="weeklyLimitLabel" text="\$0.00" textFill="#263238" GridPane.columnIndex="1">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Spent Amount:" textFill="#546e7a" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="spentAmountLabel" text="\$0.00" textFill="#263238" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Remaining:" textFill="#546e7a" GridPane.rowIndex="2">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="remainingBudgetLabel" text="\$0.00" textFill="#2e7d32" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <font>
+                                                        <Font name="System Bold" size="24.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="budgetStatusLabel" text="Within Weekly Budget" textFill="#2e7d32" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                                                    <font>
+                                                        <Font size="13.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+
+                                <!-- Total Nutrition Summary Card -->
+                                <VBox spacing="14.0" style="-fx-background-color: #ffffff; -fx-border-color: #cfd8dc; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="20.0" left="25.0" right="25.0" top="20.0" />
+                                    </padding>
+                                    <children>
+                                        <Label text="Total Nutrition (Selected Meals)" textFill="#032044">
+                                            <font>
+                                                <Font name="System Bold" size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <GridPane hgap="20.0" vgap="10.0">
+                                            <columnConstraints>
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="90.0" />
+                                                <ColumnConstraints hgrow="SOMETIMES" minWidth="90.0" />
+                                                <ColumnConstraints hgrow="ALWAYS" minWidth="90.0" />
+                                            </columnConstraints>
+                                            <rowConstraints>
+                                                <RowConstraints minHeight="26.0" />
+                                                <RowConstraints minHeight="26.0" />
+                                                <RowConstraints minHeight="26.0" />
+                                            </rowConstraints>
+                                            <children>
+                                                <Label text="Total Calories:" textFill="#546e7a">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalCaloriesLabel" text="0 kcal" textFill="#263238" GridPane.columnIndex="1">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total Protein:" textFill="#546e7a" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalProteinLabel" text="0.0 g" textFill="#263238" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total Carbs:" textFill="#546e7a" GridPane.rowIndex="2">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalCarbsLabel" text="0.0 g" textFill="#263238" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Total Fat:" textFill="#546e7a" GridPane.columnIndex="2">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalFatLabel" text="0.0 g" textFill="#263238" GridPane.columnIndex="3">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Sugar:" textFill="#546e7a" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font size="15.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label fx:id="totalSugarLabel" text="0.0 g" textFill="#263238" GridPane.columnIndex="3" GridPane.rowIndex="1">
+                                                    <font>
+                                                        <Font name="System Bold" size="16.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </GridPane>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+
+                        <!-- Bottom Row: Food Selection Lists (Side by Side) -->
+                        <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+                            <children>
+                                <!-- Available Campus Meals List Panel -->
+                                <VBox spacing="10.0" style="-fx-background-color: #ffffff; -fx-border-color: #cfd8dc; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="16.0" left="20.0" right="20.0" top="16.0" />
+                                    </padding>
+                                    <children>
+                                        <VBox spacing="2.0">
+                                            <children>
+                                                <Label text="Available Campus Meals" textFill="#032044">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Filtered according to your dietary preferences and allergens" textFill="#78909c">
+                                                    <font>
+                                                        <Font size="12.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <ListView fx:id="selectableMealsListView" style="-fx-font-size: 14px;" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#onFoodListSelection" prefHeight="46.0" style="-fx-background-color: #2e7d32; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Add to Selected Meals (+)">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </VBox>
+
+                                <!-- Selected Meals (Plan) List Panel -->
+                                <VBox spacing="10.0" style="-fx-background-color: #ffffff; -fx-border-color: #cfd8dc; -fx-border-radius: 8; -fx-background-radius: 8; -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.06), 8, 0, 0, 2);" HBox.hgrow="ALWAYS">
+                                    <padding>
+                                        <Insets bottom="16.0" left="20.0" right="20.0" top="16.0" />
+                                    </padding>
+                                    <children>
+                                        <VBox spacing="2.0">
+                                            <children>
+                                                <Label text="Selected Meals (Your Weekly Plan)" textFill="#032044">
+                                                    <font>
+                                                        <Font name="System Bold" size="17.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Items currently contributing to budget expenditure and nutrition totals" textFill="#78909c">
+                                                    <font>
+                                                        <Font size="12.0" />
+                                                    </font>
+                                                </Label>
+                                            </children>
+                                        </VBox>
+                                        <ListView fx:id="selectedMealsListView" style="-fx-font-size: 14px;" VBox.vgrow="ALWAYS" />
+                                        <Button maxWidth="Infinity" mnemonicParsing="false" onAction="#onFoodListDeselection" prefHeight="46.0" style="-fx-background-color: #d32f2f; -fx-text-fill: white; -fx-font-weight: bold; -fx-background-radius: 6; -fx-cursor: hand;" text="Remove Selected Meal (-)">
+                                            <font>
+                                                <Font size="15.0" />
+                                            </font>
+                                        </Button>
+                                    </children>
+                                </VBox>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </center>
+        </BorderPane>
+    </center>
+</BorderPane>
