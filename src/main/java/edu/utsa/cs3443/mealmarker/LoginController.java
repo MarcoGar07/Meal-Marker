@@ -46,11 +46,11 @@ public class LoginController {
             showAlert("Login Successful",
                     "Welcome to Meal Marker," + username + "!");
             try {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/profile-view.fxml"));
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/sidebar-view.fxml"));
                 Scene scene = new Scene(loader.load(), 900, 600);
 
-                ProfileController profileController = loader.getController();
-                profileController.initData(user);
+                SideBarController sideBarController = loader.getController();
+                sideBarController.initData(user);
 
                 Stage stage = (Stage) loginButton.getScene().getWindow();
                 stage.setScene(scene);
