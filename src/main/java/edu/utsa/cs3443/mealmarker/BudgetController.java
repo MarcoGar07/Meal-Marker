@@ -156,7 +156,7 @@ public class BudgetController {
     }
 
     /**
-     * Initializes the controller conforming to UML naming (- Initialize(): void).
+     * Initializes the controller conforming to the UML
      */
     public void Initialize() {
         initialize();
