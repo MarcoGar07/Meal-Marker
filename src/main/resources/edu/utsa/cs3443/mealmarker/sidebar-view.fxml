@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.utsa.cs3443.mealmarker.SideBarController">
+    <left>
+        <VBox spacing="8" style="-fx-padding: 10;">
+            <Button maxWidth="Infinity" prefHeight="80.0" prefWidth="145.0" text="Home" />
+            <Button maxWidth="Infinity" onAction="#onBudgetAndNutritionButtonClick" prefHeight="80.0" prefWidth="145.0" text="Budget &amp; Nutrition" />
+            <Button maxWidth="Infinity" onAction="#onProfileAndPreferencesButtonClick" prefHeight="80.0" prefWidth="145.0" text="Profile &amp; Preferences" />
+            <Button maxWidth="Infinity" onAction="#onUserGuideButtonClick" prefHeight="80.0" prefWidth="145.0" text="User Guide" />
+            <Region VBox.vgrow="ALWAYS" />
+         <Label fx:id="userNameLabel" prefHeight="17.0" prefWidth="171.0" text="Label">
+            <padding>
+               <Insets left="100.0" />
+            </padding>
+            <font>
+               <Font size="16.0" />
+            </font>
+         </Label>
+         <Label text="UTSA student">
+            <padding>
+               <Insets left="100.0" />
+            </padding>
+            <font>
+               <Font size="10.0" />
+            </font>
+         </Label>
+            <Button fx:id="logoutButton" maxWidth="Infinity" onAction="#onLogoutButtonClick" text="Logout" />
+        </VBox>
+    </left>
+    <center>
+        <StackPane fx:id="contentPane" />
+    </center>
+</BorderPane>

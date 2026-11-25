@@ -97,11 +97,8 @@ public class CreateAccountController {
         saveAllUsers();
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/profile-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/login-view.fxml"));
             Scene scene = new Scene(loader.load());
-
-            ProfileController profileController = loader.getController();
-            profileController.initData(user);
 
             Stage stage = (Stage) createAccountButton.getScene().getWindow();
             stage.setScene(scene);
