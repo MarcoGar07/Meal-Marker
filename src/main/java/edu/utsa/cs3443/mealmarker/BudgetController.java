@@ -401,55 +401,6 @@ public class BudgetController {
         }
     }
 
-    // Sidebar Navigation Event Handlers
-
-    @FXML
-    public void onHomeButtonClick(ActionEvent event) {
-        navigateTo(event, "/edu/utsa/cs3443/mealmarker/userguide.fxml");
-    }
-
-    @FXML
-    public void onCreateUpdateProfileButtonClick(ActionEvent event) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/edu/utsa/cs3443/mealmarker/profile-view.fxml"));
-            Scene scene = new Scene(loader.load(), 900, 600);
-            ProfileController profileController = loader.getController();
-            if (profileController != null && user != null) {
-                profileController.initData(user);
-            }
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-        } catch (IOException e) {
-            System.err.println("Error navigating to profile view: " + e.getMessage());
-        }
-    }
-
-    @FXML
-    public void onBudgetButtonClick(ActionEvent event) {
-        updateBudgetDisplay();
-    }
-
-    @FXML
-    public void onUserGuideButtonClick(ActionEvent event) {
-        navigateTo(event, "/edu/utsa/cs3443/mealmarker/userguide.fxml");
-    }
-
-    @FXML
-    public void onLogoutButtonClick(ActionEvent event) {
-        navigateTo(event, "/edu/utsa/cs3443/mealmarker/login-view.fxml");
-    }
-
-    private void navigateTo(ActionEvent event, String resourcePath) {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(resourcePath));
-            Scene scene = new Scene(loader.load());
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-        } catch (IOException e) {
-            System.err.println("Error navigating to " + resourcePath + ": " + e.getMessage());
-        }
-    }
-
     // Public API / Getters and Setters
 
     /**
